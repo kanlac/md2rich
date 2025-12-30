@@ -1,8 +1,8 @@
-/* 微信公众号优雅主题 - 高端杂志风格 */
+/* 微信公众号优雅主题 - 现代玫瑰红风格 */
 
 /* 容器 */
 .markdown-body {
-  font-family: "Songti SC", "SimSun", Georgia, serif;
+  font-family: "PingFang SC", -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Segoe UI", "Noto Sans SC", sans-serif;
   font-size: 17px;
   line-height: 1.8;
   color: #2c2c2c;
@@ -15,8 +15,8 @@
 /* 标题 */
 h1 {
   font-size: 26px;
-  font-weight: 700;
-  color: #1a1a1a;
+  font-weight: 800;
+  color: #a13854;
   margin: 40px 0 25px;
   text-align: center;
   letter-spacing: 2px;
@@ -25,19 +25,19 @@ h1 {
 
 h2 {
   font-size: 23px;
-  font-weight: 600;
-  color: #1a1a1a;
+  font-weight: 700;
+  color: #c94d5c;
   margin: 35px 0 20px;
   padding-bottom: 8px;
-  border-bottom: 1px solid #d4af37;
+  border-bottom: 2px solid #c94d5c;
   letter-spacing: 1px;
   line-height: 1.3;
 }
 
 h3 {
   font-size: 20px;
-  font-weight: 600;
-  color: #333;
+  font-weight: 700;
+  color: #d65866;
   margin: 28px 0 15px;
   letter-spacing: 0.5px;
   line-height: 1.3;
@@ -45,16 +45,24 @@ h3 {
 
 h4 {
   font-size: 18px;
-  font-weight: 600;
-  color: #333;
+  font-weight: 700;
+  color: #a64d6d;
   margin: 22px 0 12px;
   line-height: 1.3;
 }
 
-h5, h6 {
+h5 {
   font-size: 17px;
-  font-weight: 600;
-  color: #333;
+  font-weight: 700;
+  color: #8b5363;
+  margin: 18px 0 10px;
+  line-height: 1.3;
+}
+
+h6 {
+  font-size: 16px;
+  font-weight: 700;
+  color: #996666;
   margin: 18px 0 10px;
   line-height: 1.3;
 }
@@ -64,15 +72,20 @@ p {
   margin: 18px 0;
   line-height: 1.8;
   text-align: justify;
-  text-indent: 2em;
+  text-indent: 0;
 }
 
 /* 链接 */
 a {
-  color: #8b7355;
+  color: #c94d5c;
   text-decoration: none;
-  border-bottom: 1px dotted #8b7355;
-  transition: all 0.2s;
+  border-bottom: 1px dotted #d65866;
+  transition: all 0.3s ease;
+}
+
+a:hover {
+  color: #a13854;
+  border-bottom-color: #a13854;
 }
 
 /* 列表 */
@@ -94,8 +107,8 @@ li p {
 blockquote {
   margin: 25px 0;
   padding: 20px 25px;
-  background: linear-gradient(to right, #f9f7f4 0%, #fefefe 100%);
-  border-left: 5px solid #d4af37;
+  background: linear-gradient(to right, #fdf5f7 0%, #fefefe 100%);
+  border-left: 5px solid #c94d5c;
   color: #555;
   font-style: italic;
   font-size: 16px;
@@ -110,20 +123,20 @@ blockquote p {
 code {
   padding: 3px 8px;
   margin: 0 3px;
-  background: #f5f2ed;
-  border: 1px solid #e8e3db;
+  background: #fdf5f7;
+  border: 1px solid #f5d4da;
   border-radius: 3px;
   font-family: "Monaco", "Menlo", "Consolas", monospace;
   font-size: 14px;
-  color: #8b4513;
+  color: #a13854;
 }
 
 pre {
   margin: 25px 0;
   padding: 18px;
-  background: #fafaf8;
-  border: 1px solid #e8e3db;
-  border-left: 4px solid #d4af37;
+  background: #fdfbfc;
+  border: 1px solid #f5d4da;
+  border-left: 4px solid #c94d5c;
   border-radius: 4px;
   overflow-x: auto;
   line-height: 1.6;
@@ -151,30 +164,31 @@ table {
 }
 
 thead {
-  background: #8b7355;
+  background: #c94d5c;
   color: white;
 }
 
 th {
   padding: 14px 18px;
   text-align: left;
-  font-weight: 600;
-  border: 1px solid #6d5a46;
+  font-weight: 700;
+  border: 1px solid #a13854;
   letter-spacing: 0.5px;
 }
 
 td {
   padding: 12px 18px;
-  border: 1px solid #e8e3db;
+  border: 1px solid #f5d4da;
   line-height: 1.7;
 }
 
 tbody tr:nth-child(even) {
-  background: #fafaf8;
+  background: #fdfbfc;
 }
 
 tbody tr:hover {
-  background: #f5f2ed;
+  background: #fdf5f7;
+  transition: background 0.2s ease;
 }
 
 /* 分割线 */
@@ -182,8 +196,8 @@ hr {
   margin: 40px auto;
   border: none;
   width: 60%;
-  height: 1px;
-  background: linear-gradient(to right, transparent, #d4af37, transparent);
+  height: 2px;
+  background: linear-gradient(to right, transparent, #c94d5c, transparent);
 }
 
 /* 图片 */
@@ -192,14 +206,14 @@ img {
   height: auto;
   display: block;
   margin: 30px auto;
-  border-radius: 2px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  box-shadow: 0 4px 16px rgba(201, 77, 92, 0.08);
 }
 
 /* 强调 */
 strong {
   font-weight: 700;
-  color: #1a1a1a;
+  color: #a13854;
 }
 
 em {

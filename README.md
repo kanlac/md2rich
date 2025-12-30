@@ -23,14 +23,9 @@ npm install
 ### 基本用法
 
 ```bash
-# 转换 Markdown 并输出到文件
-node index.js input.md -o output.html
-
-# 使用指定主题
-node index.js input.md -t wechat-elegant -o output.html
-
-# 生成内联 HTML（适合富文本编辑器，无 DOCTYPE 等标签）
-node index.js input.md -t wechat-elegant -i -o output.html
+# 转换 Markdown 并输出 HTML
+# -i: 生成内联 HTML（适合富文本编辑器，无 DOCTYPE 等标签）
+node index.js examples/demo.md -t elegant-rose -i -o examples/demo-minimal.html
 ```
 
 ### 查看可用主题
