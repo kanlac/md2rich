@@ -25,7 +25,7 @@ npm install
 ```bash
 # 转换 Markdown 并输出 HTML
 # -i: 生成内联 HTML（适合富文本编辑器，无 DOCTYPE 等标签）
-node index.js examples/demo.md -t elegant-rose -i -o examples/demo-output.html
+node index.js examples/demo.md -t elegant-orange -i -o examples/demo-output.html
 ```
 
 ### 查看可用主题
@@ -63,27 +63,12 @@ Options:
 | 主题 | 风格 | 适用场景 | 特色 |
 |------|------|---------|------|
 | **wechat-default** | 清新简洁 | 通用文章、教程 | 蓝色系、现代无衬线字体 |
-| **elegant-rose** ✨ | 现代优雅 | 品牌文章、专业内容 | 玫瑰红色系、苹方字体、层次分明 |
+| **elegant-orange** ✨ | 现代优雅 | 品牌文章、专业内容 | 橙色系、苹方字体、层次分明 |
 | **wechat-minimal** | 优雅极简 | 品味内容、思考文章 | Baskerville 字体、淡橙强调、macOS Terminal 代码块 |
 
-#### elegant-rose 主题亮点 ✨
+#### elegant-orange 主题效果
 
-- 🌹 **玫瑰红配色**：醒目但优雅的玫瑰红色系，现代而不刺眼
-- 🎨 **标题层次**：6 级标题使用不同深浅的红色，层次分明
-- ✍️ **苹方字体**：PingFang SC 无衬线字体，清晰现代
-- 💪 **加粗设计**：所有标题均采用加粗设计，视觉冲击力强
-- 🎯 **专业感**：适合品牌文章、产品介绍等专业内容
-
-![elegant-rose 示例](examples/images/demo-elegant-rose.jpg)
-
-#### wechat-minimal 主题亮点
-
-- 🎨 **优雅字体**：Baskerville 衬线体，传承经典排版美学
-- 🟠 **淡橙强调**：加粗文字使用温暖的淡橙色 #F97316，优雅而有活力
-- 💻 **Terminal 代码块**：模拟 macOS Terminal 窗口，带标题栏和三色控制按钮
-- ⚪ **极致留白**：大量空白营造呼吸感，标题间距达 56-64px
-- 🎯 **克制装饰**：简洁线条分隔，不使用多余元素
-- 📐 **精致间距**：每个元素的间距都经过精心考量
+![elegant-orange 示例](examples/images/demo.jpg)
 
 ### 自定义主题
 
@@ -106,7 +91,7 @@ node index.js input.md -t my-theme -c
 1. **准备 Markdown 文档**
 2. **转换为 HTML**：
    ```bash
-   node index.js article.md -t elegant-rose -i -o output.html
+   node index.js article.md -t elegant-orange -i -o output.html
    ```
 3. **在浏览器中打开** `output.html`
 4. **全选并复制**（Cmd+A / Ctrl+A，然后 Cmd+C / Ctrl+C）
@@ -138,8 +123,8 @@ node index.js input.md -t my-theme -c
 # 使用 wechat-default 主题
 node index.js examples/demo.md -t wechat-default -i -o output.html
 
-# 使用 elegant-rose 主题（推荐）
-node index.js examples/demo.md -t elegant-rose -i -o output.html
+# 使用 elegant-orange 主题（推荐）
+node index.js examples/demo.md -t elegant-orange -i -o output.html
 
 # 使用 wechat-minimal 主题
 node index.js examples/demo.md -t wechat-minimal -i -o output.html
