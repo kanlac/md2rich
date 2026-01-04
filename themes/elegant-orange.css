@@ -3,7 +3,7 @@
 /* 颜色变量定义 - 方便后续微调 */
 :root {
   /* 主色调 - 用于标题和强调 */
-  --primary-color: #ff832bcb;
+  --primary-color: #D97757;
 
   /* 辅助色 */
   --primary-dark: #CC5500;
@@ -95,7 +95,7 @@ h6 {
 p {
   margin: 18px 0;
   line-height: 1.8;
-  text-align: justify;
+  text-align: left;
   text-indent: 0;
 }
 
