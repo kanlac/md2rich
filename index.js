@@ -86,12 +86,19 @@ program
         process.exit(1);
       }
 
-      fs.writeFileSync(options.output, html, 'utf-8');
-      console.log(chalk.green(`✓ HTML saved to: ${options.output}`));
+      // 处理输出路径：如果是目录，则在目录下创建文件
+      let outputPath = options.output;
+      if (fs.existsSync(outputPath) && fs.statSync(outputPath).isDirectory()) {
+        const inputBaseName = path.basename(input, path.extname(input));
+        outputPath = path.join(outputPath, `${inputBaseName}.html`);
+      }
+
+      fs.writeFileSync(outputPath, html, 'utf-8');
+      console.log(chalk.green(`✓ HTML saved to: ${outputPath}`));
 
       // 提示用户如何使用生成的文件
       console.log(chalk.cyan('\n📖 How to use:'));
-      console.log(chalk.gray(`  1. Open ${options.output} in your browser`));
+      console.log(chalk.gray(`  1. Open ${outputPath} in your browser`));
       console.log(chalk.gray('  2. Select all content (Cmd+A / Ctrl+A)'));
       console.log(chalk.gray('  3. Copy (Cmd+C / Ctrl+C)'));
       console.log(chalk.gray('  4. Paste into WeChat Editor or other rich-text editors'))
