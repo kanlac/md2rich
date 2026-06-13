@@ -9,10 +9,14 @@ import { parseMarkdown } from './lib/parser.js';
 import {
   generateStyledHTML,
   generateInlineHTML,
+  generateStyledHTMLWithCSS,
+  generateInlineHTMLWithCSS,
   getAvailableThemes,
   sanitizeHTML
 } from './lib/styler.js';
 import { processImagesInHTML } from './lib/image-processor.js';
+import { buildCSS } from './lib/theme-engine.js';
+import { generatePanelHTML } from './lib/panel.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -32,7 +36,8 @@ program
 
 program
   .argument('[input]', 'Input Obsidian Markdown file path')
-  .option('-t, --theme <theme>', 'Theme name (default: wechat-default)', 'wechat-default')
+  .option('-t, --theme <theme>', 'Theme name (default: default)', 'default')
+  .option('--template <file>', 'Render using a JSON theme template exported from the control panel')
   .option('-i, --inline-only', 'Generate inline HTML only (no DOCTYPE/html/body tags)')
   .option('-s, --sanitize', 'Clean HTML for better platform compatibility')
   .option('-a, --attachments-dir <dir>', 'Attachments directory relative to input file', 'attachments')
@@ -87,11 +92,25 @@ program
       });
 
       // 应用主题和内联样式
-      console.log(chalk.blue(`Applying theme: ${options.theme}...`));
-      if (options.inlineOnly) {
-        html = generateInlineHTML(html, options.theme);
+      if (options.template) {
+        // 从控制面板导出的 JSON 模板生成 CSS
+        if (!fs.existsSync(options.template)) {
+          console.error(chalk.red(`Error: Template file not found: ${options.template}`));
+          process.exit(1);
+        }
+        console.log(chalk.blue(`Applying template: ${options.template}...`));
+        const params = JSON.parse(fs.readFileSync(options.template, 'utf-8'));
+        const css = buildCSS(params);
+        html = options.inlineOnly
+          ? generateInlineHTMLWithCSS(html, css)
+          : generateStyledHTMLWithCSS(html, css);
       } else {
-        html = generateStyledHTML(html, options.theme);
+        console.log(chalk.blue(`Applying theme: ${options.theme}...`));
+        if (options.inlineOnly) {
+          html = generateInlineHTML(html, options.theme);
+        } else {
+          html = generateStyledHTML(html, options.theme);
+        }
       }
 
       // 清理 HTML
@@ -123,6 +142,54 @@ program
       if (error.stack) {
         console.error(chalk.gray(error.stack));
       }
+      process.exit(1);
+    }
+  });
+
+// 生成主题控制面板
+program
+  .command('panel <input>')
+  .description('Generate an interactive theme control panel for an article')
+  .option('-a, --attachments-dir <dir>', 'Attachments directory relative to input file', 'attachments')
+  .action(async (input, options) => {
+    try {
+      if (!fs.existsSync(input)) {
+        console.error(chalk.red(`Error: Input file not found: ${input}`));
+        process.exit(1);
+      }
+      console.log(chalk.blue(`Reading ${input}...`));
+      const markdown = fs.readFileSync(input, 'utf-8');
+
+      console.log(chalk.blue('Parsing Markdown...'));
+      let body = parseMarkdown(markdown, {
+        stripFrontmatter: true,
+        stripTitle: false,
+        paragraphSpacing: true,
+        attachmentsDir: options.attachmentsDir,
+      });
+
+      console.log(chalk.blue('Processing images...'));
+      const inputDir = path.dirname(path.resolve(input));
+      body = processImagesInHTML(body, inputDir, { attachmentsDir: options.attachmentsDir });
+
+      const title = path.basename(input, path.extname(input));
+      const panelHTML = generatePanelHTML(body, title);
+
+      if (!fs.existsSync(outputDir)) {
+        fs.mkdirSync(outputDir, { recursive: true });
+      }
+      const outputPath = path.join(outputDir, `${title}-panel.html`);
+      fs.writeFileSync(outputPath, panelHTML, 'utf-8');
+
+      console.log(chalk.green(`✓ Control panel saved to: ${outputPath}`));
+      console.log(chalk.cyan('\n📖 How to use:'));
+      console.log(chalk.gray(`  1. Open ${outputPath} in your browser`));
+      console.log(chalk.gray('  2. Tweak fonts / colors / spacing — preview updates live'));
+      console.log(chalk.gray('  3. Click "导出 JSON" to download theme.json'));
+      console.log(chalk.gray('  4. Render final HTML: node index.js article.md --template theme.json'));
+    } catch (error) {
+      console.error(chalk.red(`\n✗ Error: ${error.message}`));
+      if (error.stack) console.error(chalk.gray(error.stack));
       process.exit(1);
     }
   });

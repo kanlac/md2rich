@@ -1,0 +1,169 @@
+/*
+ * default 主题 — 由控制面板导出的模板编译而来
+ * 源参数见 templates/default.json，改动后重跑：
+ *   node -e '...buildCSS...'  或重新从面板导出
+ */
+
+.markdown-body {
+  font-family: "PingFang SC", -apple-system, BlinkMacSystemFont, "Microsoft YaHei", "Noto Sans SC", "Segoe UI", sans-serif;
+  font-size: 18px;
+  line-height: 1.85;
+  color: #1f2937;
+  padding: 26px 24px;
+  max-width: 720px;
+  margin: 0 auto;
+  word-wrap: break-word;
+  background: #ffffff;
+  
+}
+
+h1 {
+  font-size: 28px;
+  font-weight: 800;
+  color: #9f1239;
+  margin: 36px 0 18px;
+  text-align: center;
+  line-height: 1.35;
+}
+
+h2 {
+  font-size: 23px;
+  font-weight: 700;
+  color: #e11d48;
+  margin: 31px 0 18px;
+  line-height: 1.4;
+  padding-left: 12px; border-left: 5px solid #e11d48;
+}
+
+h3 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #e11d48;
+  margin: 25px 0 14px;
+  line-height: 1.4;
+}
+
+h4 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #e11d48;
+  margin: 18px 0 11px;
+  line-height: 1.4;
+}
+
+h5, h6 {
+  font-size: 17px;
+  font-weight: 700;
+  color: #1f2937;
+  margin: 16px 0 9px;
+  line-height: 1.4;
+}
+
+p {
+  margin: 18px 0;
+  line-height: 1.85;
+  text-align: justify;
+}
+
+a {
+  color: #e11d48;
+  text-decoration: none;
+  border-bottom: 1px solid #e11d4866;
+}
+
+ul, ol {
+  margin: 18px 0;
+  padding-left: 30px;
+}
+
+li {
+  margin: 9px 0;
+  line-height: 1.85;
+}
+
+li p { margin: 6px 0; }
+
+blockquote {
+  margin: 23px 0;
+  padding: 14px 22px;
+  background: #fff1f2;
+  border-left: 4px solid #e11d48;
+  color: #1f2937;
+  font-size: 17px;
+  border-radius: 0 6px 6px 0;
+}
+
+blockquote p { margin: 8px 0; }
+
+code {
+  padding: 2px 7px;
+  margin: 0 2px;
+  background: #fff1f2;
+  border-radius: 4px;
+  font-family: "SFMono-Regular", "Menlo", "Consolas", "Liberation Mono", monospace;
+  font-size: 15px;
+  color: #9f1239;
+}
+
+pre {
+  margin: 23px 0;
+  padding: 18px 20px;
+  background: #fff1f2;
+  border: 1px solid #e11d4833;
+  border-radius: 8px;
+  overflow-x: auto;
+  line-height: 1.7;
+}
+
+pre code {
+  padding: 0;
+  margin: 0;
+  background: transparent;
+  border: none;
+  color: #1f2937;
+  font-size: 14px;
+}
+
+table {
+  margin: 23px 0;
+  border-collapse: collapse;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  display: block;
+  font-size: 16px;
+}
+
+thead { background: #e11d48; color: #ffffff; }
+
+th {
+  padding: 12px 16px;
+  text-align: left;
+  font-weight: 700;
+  border: 1px solid #9f1239;
+}
+
+td {
+  padding: 11px 16px;
+  border: 1px solid #e11d4833;
+}
+
+tbody tr:nth-child(even) { background: #fff1f266; }
+
+hr {
+  margin: 36px auto;
+  border: none; width: 36%; height: 3px; border-radius: 3px; background: #e11d48;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 25px auto;
+  border-radius: 8px;
+  
+}
+
+strong { font-weight: 700; color: #9f1239; }
+em { font-style: italic; color: #1f2937; }
+del { text-decoration: line-through; color: #9aa8a1; }

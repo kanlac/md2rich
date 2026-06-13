@@ -1,0 +1,22 @@
+{
+  "name": "custom",
+  "font": "pingfang",
+  "fontSize": 18,
+  "lineHeight": 1.85,
+  "paragraphSpacing": 18,
+  "padding": 24,
+  "letterSpacing": 0,
+  "textColor": "#1f2937",
+  "bgColor": "#ffffff",
+  "accent": "#e11d48",
+  "accentDark": "#9f1239",
+  "tint": "#fff1f2",
+  "headingStyle": "border-left",
+  "h1Align": "center",
+  "codeTheme": "light",
+  "hrStyle": "solid",
+  "justify": true,
+  "linkUnderline": true,
+  "imgRadius": 8,
+  "imgShadow": false
+}

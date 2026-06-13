@@ -35,6 +35,7 @@ Arguments:
 Options:
   -V, --version                        显示版本号
   -t, --theme <theme>                  主题名称 (默认: wechat-default)
+  --template <file>                    用控制面板导出的 JSON 模板渲染
   -i, --inline-only                    只输出内联 HTML（无 DOCTYPE/html/body）
   -s, --sanitize                       清理 HTML 属性，增强兼容性
   -a, --attachments-dir <dir>          图片目录名（默认: attachments）
@@ -60,3 +61,28 @@ node index.js ./vault/article.md -a _assets
 ```bash
 node index.js themes
 ```
+
+预置无衬线主题：`forest-sans`（林绿）、`midnight-indigo`（靛蓝）等。
+
+## 自定义主题：控制面板 + JSON 模板
+
+不想手写 CSS？用控制面板可视化调参，导出 JSON 当模板：
+
+```bash
+# 1. 为某篇文章生成控制面板（带实时预览）
+node index.js panel ./vault/article.md
+#    -> outputs/article-panel.html
+
+# 2. 浏览器打开该文件，调字体/字号/行高/颜色/标题样式等，
+#    满意后点「导出 JSON」得到 theme.json
+
+# 3. 用模板渲染最终 HTML
+node index.js ./vault/article.md --template theme.json
+```
+
+可调参数：无衬线字体（苹方 / 思源黑体 / system-ui / 雅黑）、正文字号、行高、
+段间距、内边距、字间距、强调主色 / 深色 / 浅底 / 正文色 / 背景色、
+二级标题样式、一级标题对齐、代码块明暗、分割线样式、图片圆角 / 阴影、链接下划线、两端对齐。
+
+> 字体说明：微信公众号不能嵌入网络字体，最终落到读者设备的系统字体，
+> 故只提供无衬线（黑体）选项 —— 这是各设备上最稳的一类。

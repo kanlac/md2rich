@@ -1,0 +1,191 @@
+/*
+ * forest-sans 主题 — 林绿黑体（清爽现代风）
+ * 字体：苹方/系统黑体（PingFang SC / 雅黑 / 思源黑体），最通用，所有设备稳定
+ * 主题色：森绿（emerald/forest），干净、克制、适合技术与产品类长文
+ *
+ * 调色板：
+ *   强调主色 emerald   #2f7d5b
+ *   强调深色 forest    #1f5a40
+ *   正文     ink       #1f2522
+ *   浅底     off-white #ffffff
+ *   细底/边  pale mint #e9f2ed
+ */
+
+/* 容器 */
+.markdown-body {
+  font-family: "PingFang SC", -apple-system, BlinkMacSystemFont, "Microsoft YaHei", "Noto Sans SC", "Segoe UI", sans-serif;
+  font-size: 18px;
+  line-height: 1.85;
+  color: #1f2522;
+  padding: 26px 22px;
+  max-width: 720px;
+  margin: 0 auto;
+  word-wrap: break-word;
+  background: #ffffff;
+}
+
+/* 标题 */
+h1 {
+  font-size: 28px;
+  font-weight: 800;
+  color: #1f5a40;
+  margin: 40px 0 24px;
+  text-align: center;
+  letter-spacing: 0.5px;
+  line-height: 1.35;
+}
+
+h2 {
+  font-size: 23px;
+  font-weight: 700;
+  color: #2f7d5b;
+  margin: 36px 0 18px;
+  padding-left: 12px;
+  border-left: 5px solid #2f7d5b;
+  line-height: 1.4;
+}
+
+h3 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #2f7d5b;
+  margin: 28px 0 14px;
+  line-height: 1.4;
+}
+
+h4 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #36705a;
+  margin: 22px 0 12px;
+  line-height: 1.4;
+}
+
+h5, h6 {
+  font-size: 17px;
+  font-weight: 700;
+  color: #4a6157;
+  margin: 18px 0 10px;
+  line-height: 1.4;
+}
+
+/* 段落 */
+p {
+  margin: 18px 0;
+  line-height: 1.85;
+  text-align: justify;
+}
+
+/* 链接 */
+a {
+  color: #2f7d5b;
+  text-decoration: none;
+  border-bottom: 1px solid #a7d3c0;
+}
+
+/* 列表 */
+ul, ol {
+  margin: 18px 0;
+  padding-left: 30px;
+}
+
+li {
+  margin: 9px 0;
+  line-height: 1.85;
+}
+
+li p { margin: 6px 0; }
+
+/* 引用 */
+blockquote {
+  margin: 24px 0;
+  padding: 14px 22px;
+  background: #e9f2ed;
+  border-left: 4px solid #2f7d5b;
+  color: #41524b;
+  font-size: 17px;
+  border-radius: 0 6px 6px 0;
+}
+
+blockquote p { margin: 8px 0; }
+
+/* 代码 */
+code {
+  padding: 2px 7px;
+  margin: 0 2px;
+  background: #e9f2ed;
+  border-radius: 4px;
+  font-family: "SFMono-Regular", "Menlo", "Consolas", monospace;
+  font-size: 15px;
+  color: #1f5a40;
+}
+
+pre {
+  margin: 24px 0;
+  padding: 18px 20px;
+  background: #14201b;
+  border-radius: 8px;
+  overflow-x: auto;
+  line-height: 1.7;
+}
+
+pre code {
+  padding: 0;
+  background: transparent;
+  color: #d7e8df;
+  font-size: 14px;
+}
+
+/* 表格 */
+table {
+  margin: 24px 0;
+  border-collapse: collapse;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  display: block;
+  font-size: 16px;
+}
+
+thead {
+  background: #2f7d5b;
+  color: #ffffff;
+}
+
+th {
+  padding: 12px 16px;
+  text-align: left;
+  font-weight: 700;
+  border: 1px solid #1f5a40;
+}
+
+td {
+  padding: 11px 16px;
+  border: 1px solid #d3e6dd;
+}
+
+tbody tr:nth-child(even) { background: #f3f9f6; }
+
+/* 分割线 */
+hr {
+  margin: 38px auto;
+  border: none;
+  width: 36%;
+  height: 3px;
+  border-radius: 3px;
+  background: #2f7d5b;
+}
+
+/* 图片 */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 26px auto;
+  border-radius: 8px;
+}
+
+/* 强调 */
+strong { font-weight: 700; color: #1f5a40; }
+em { font-style: italic; color: #41524b; }
+del { text-decoration: line-through; color: #9aa8a1; }
