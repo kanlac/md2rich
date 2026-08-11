@@ -40,7 +40,7 @@ program
   .option('--template <file>', 'Render using a JSON theme template exported from the control panel')
   .option('-i, --inline-only', 'Generate inline HTML only (no DOCTYPE/html/body tags)')
   .option('-s, --sanitize', 'Clean HTML for better platform compatibility')
-  .option('-a, --attachments-dir <dir>', 'Attachments directory relative to input file', 'attachments')
+  .option('-a, --attachments-dir <dir>', 'Attachments directory relative to input file', '../attachments')
   .option('--keep-frontmatter', 'Keep YAML frontmatter in output')
   .option('--keep-title', 'Keep leading H1 title in output')
   .option('--no-paragraph-spacing', 'Do not insert extra blank lines between plain text lines')
@@ -150,7 +150,7 @@ program
 program
   .command('panel <input>')
   .description('Generate an interactive theme control panel for an article')
-  .option('-a, --attachments-dir <dir>', 'Attachments directory relative to input file', 'attachments')
+  .option('-a, --attachments-dir <dir>', 'Attachments directory relative to input file', '../attachments')
   .action(async (input, options) => {
     try {
       if (!fs.existsSync(input)) {

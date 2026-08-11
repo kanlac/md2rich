@@ -22,7 +22,7 @@ node index.js path/to/note.md
 - 去掉文档开头的一级标题（H1）
 - 普通正文行之间自动补空行（code block 内不补）
 - 支持 Obsidian 图片嵌入语法 `![[image.png]]`
-- 默认从文档同级的 `attachments/` 目录找图片并转成 base64
+- 默认从文档上一级的 `attachments/` 目录找图片并转成 base64
 
 ## 可选参数
 
@@ -38,7 +38,7 @@ Options:
   --template <file>                    用控制面板导出的 JSON 模板渲染
   -i, --inline-only                    只输出内联 HTML（无 DOCTYPE/html/body）
   -s, --sanitize                       清理 HTML 属性，增强兼容性
-  -a, --attachments-dir <dir>          图片目录名（默认: attachments）
+  -a, --attachments-dir <dir>          图片目录（默认: ../attachments）
   --keep-frontmatter                   保留 frontmatter
   --keep-title                         保留开头 H1 标题
   --no-paragraph-spacing               关闭正文自动补空行
@@ -52,8 +52,8 @@ Options:
 # 默认规则转换
 node index.js ./vault/article.md
 
-# attachments 目录名不是默认值时
-node index.js ./vault/article.md -a _assets
+# attachments 目录不在文档上一级时
+node index.js ./vault/article.md -a ./_assets
 ```
 
 ## 主题
